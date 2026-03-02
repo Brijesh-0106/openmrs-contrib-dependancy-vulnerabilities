@@ -1,0 +1,198 @@
+@use "@carbon/react";
+
+:root {
+  @include react.theme(react.$white);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: react.$background;
+}
+.app{
+  padding: 20px 80px;
+}
+.cve-table-wrapper {
+  padding: 0 1rem 1rem 2.5rem;
+  overflow-x: auto;
+}
+
+.cve-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.cve-table thead tr {
+  background-color: #e0e0e0;
+}
+
+.cve-table th {
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #525252;
+  white-space: nowrap;
+}
+
+.cve-table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: top;
+  color: #161616;
+}
+
+.cve-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.cve-link {
+  color: #0f62fe;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cve-link:hover {
+  text-decoration: underline;
+}
+
+.cve-description {
+  max-width: 360px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.severity-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 24px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.severity-tag--critical {
+  background-color: #ff000b7a;
+  color: #520408;
+}
+
+.severity-tag--high {
+  background-color: #ffd7d9;
+  color: #520408;
+}
+
+.severity-tag--medium {
+  background-color: #fddc69;
+  color: #3a3000;
+}
+
+.severity-tag--low {
+  background-color: #e0e0e0;
+  color: #393939;
+}
+
+.repo-section {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.repo-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+}
+
+.repo-section__header:hover {
+  background-color: #f4f4f4;
+}
+
+.repo-section__title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.repo-section__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #161616;
+}
+
+.repo-section__chevron {
+  display: flex;
+  align-items: center;
+  color: #525252;
+}
+
+.repo-section__body {
+  border-top: 1px solid #e0e0e0;
+}
+
+.repo-section__body .cds--data-table-container {
+  padding: 0;
+}
+
+.repo-section__body .cds--data-table thead th {
+  background-color: #e0e0e0;
+}
+
+.repo-section__body .cds--data-table tbody tr.cds--expandable-row td {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.repo-section__body .cds--expandable-row--hover td {
+  background-color: #f4f4f4;
+}
+
+.repo-section__body tr.cds--parent-row:not(.cds--expandable-row) + tr[data-child-row] td {
+  padding: 0;
+}
+
+.repo-section__body tr[data-child-row] td .cve-table-wrapper {
+  padding: 0.5rem 1rem 1rem 2rem;
+}
+
+
+.app__header {
+  margin-bottom: 2rem;
+}
+
+.app__title {
+  font-weight: 500;
+  font-size: 3rem;
+  color: #161616;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.25;
+}
+
+.app__accent {
+  width: 7rem;
+  height: 8px;
+  background-color: #017d79;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+}
+
+.app__description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #525252;
+  margin: 0;
+}
+
+/* ── Content ──────────────────────────────────────────────────── */
+
+.app__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
