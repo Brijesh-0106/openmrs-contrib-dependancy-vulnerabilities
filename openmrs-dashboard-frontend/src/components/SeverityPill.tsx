@@ -8,7 +8,11 @@ const severityLabelMap: Record<NormalizedSeverity, string> = {
   low: "Low",
 };
 
-export const SeverityTag = ({ severity }: { severity: NormalizedSeverity }) => {
+export const SeverityPill = ({
+  severity,
+}: {
+  severity: NormalizedSeverity;
+}) => {
   return (
     <span className={`severity-tag severity-tag--${severity}`}>
       {severityLabelMap[severity]}

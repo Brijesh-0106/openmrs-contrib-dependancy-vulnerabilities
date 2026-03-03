@@ -17,7 +17,7 @@ import { severityRank } from "../helpers/servity";
 import "../style.scss";
 import type { RepositoryReport } from "../types";
 import { CveTable } from "./CveTable";
-import { SeverityTag } from "./SeverityTag";
+import { SeverityPill } from "./SeverityPill";
 
 type Props = {
   report: RepositoryReport;
@@ -91,7 +91,7 @@ export const RepositorySection = ({ report }: Props) => {
       >
         <div className="repo-section__title">
           <strong className="repo-section__name">{report.name}</strong>
-          <SeverityTag severity={report.severity} />
+          <SeverityPill severity={report.severity} />
         </div>
         <span className="repo-section__chevron">
           {expanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
@@ -143,7 +143,7 @@ export const RepositorySection = ({ report }: Props) => {
                             {row.cells.map((cell) => (
                               <TableCell key={cell.id}>
                                 {cell.info.header === "severity" ? (
-                                  <SeverityTag severity={cell.value} />
+                                  <SeverityPill severity={cell.value} />
                                 ) : (
                                   cell.value
                                 )}

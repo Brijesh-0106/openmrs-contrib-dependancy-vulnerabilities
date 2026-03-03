@@ -1,17 +1,13 @@
-// @use "@carbon/react";
-
-// :root {
-//   @include react.theme(react.$white);
-// }
-
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
-  // background-color: react.$background;
 }
-.app{
+
+.app {
   padding: 20px 80px;
 }
+
 .cve-table-wrapper {
   padding: 0 1rem 1rem 2.5rem;
   overflow-x: auto;
@@ -75,7 +71,7 @@ body {
 }
 
 .severity-tag--critical {
-  background-color: #ff000b7a;
+  background-color: rgba(255, 0, 11, 0.4784313725);
   color: #520408;
 }
 
@@ -161,7 +157,6 @@ body {
   padding: 0.5rem 1rem 1rem 2rem;
 }
 
-
 .app__header {
   margin-bottom: 2rem;
 }
@@ -190,9 +185,10 @@ body {
 }
 
 /* ── Content ──────────────────────────────────────────────────── */
-
 .app__content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
+/*# sourceMappingURL=output.css.map */

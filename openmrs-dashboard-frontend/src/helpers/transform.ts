@@ -1,8 +1,8 @@
-
-
+// DATA GIVEN
 import openmrsCoreData from "../data/openmrs-core.json";
 import openmrsModuleBillingData from "../data/openmrs-module-billing.json";
 import openmrsModuleIdgenData from "../data/openmrs-module-idgen.json";
+
 import type { Cve, Dependency, RawReport, RepositoryReport } from "../types";
 import { normalizeSeverity, severityScoreMap } from "./servity";
 import { getHighestScore, getHighestSeverity, sortCves, sortDependencies } from "./sorting";
@@ -13,9 +13,9 @@ export const transformReport = (
 ): RepositoryReport => {
     const dependencyMap = new Map<string, Dependency>();
 
-    raw.vulnerabilities.forEach((vuln) => {
-        const depName = vuln.location.dependency.package.name;
-        const version = vuln.location.dependency.version;
+    raw.vulnerabilities.forEach((elem) => {
+        const depName = elem.location.dependency.package.name;
+        const version = elem.location.dependency.version;
         const key = `${depName}@${version}`;
 
         if (!dependencyMap.has(key)) {
@@ -28,21 +28,21 @@ export const transformReport = (
             });
         }
 
-        const hasExploit = vuln.links?.some(
+        const hasExploit = elem.links?.some(
             (link) => link.name?.includes("EXPLOIT"),
         ) ?? false;
 
-        const normalized = normalizeSeverity(vuln.severity);
+        const normalized = normalizeSeverity(elem.severity);
 
-        const nvdIdentifier = vuln.identifiers?.find((id) => id.type === "NVD");
-        const npmIdentifier = vuln.identifiers?.find((id) => id.type === "NPM");
+        const nvdIdentifier = elem.identifiers?.find((id) => id.type === "NVD");
+        const npmIdentifier = elem.identifiers?.find((id) => id.type === "NPM");
         const cveUrl = nvdIdentifier?.url ?? npmIdentifier?.url;
 
         const cve: Cve = {
-            id: vuln.id,
+            id: elem.id,
             severity: normalized,
             score: severityScoreMap[normalized],
-            description: vuln.description,
+            description: elem.description,
             exploit: hasExploit,
             url: cveUrl,
         };

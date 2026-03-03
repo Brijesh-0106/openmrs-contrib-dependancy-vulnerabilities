@@ -1,6 +1,6 @@
 import "../style.scss";
 import type { Cve } from "../types";
-import { SeverityTag } from "./SeverityTag";
+import { SeverityPill } from "./SeverityPill";
 type Props = {
   cves: Cve[];
 };
@@ -38,7 +38,7 @@ export const CveTable = ({ cves }: Props) => {
                 )}
               </td>
               <td>
-                <SeverityTag severity={cve.severity} />
+                <SeverityPill severity={cve.severity} />
               </td>
               <td>{cve.score}/10</td>
               <td className="cve-description">{cve.description}</td>
